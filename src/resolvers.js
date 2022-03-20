@@ -30,8 +30,8 @@ const resolvers = {
           code: error.extensions.response.status,
           success: false,
           message: error.extensions.response.body,
-          track: null
-        }
+          track: null,
+        };
       }
     },
   },
@@ -43,6 +43,11 @@ const resolvers = {
     modules: ({ id }, _, { dataSources }) => {
       return dataSources.trackAPI.getTrackModules(id);
     },
+    durationInSeconds: ({ length }) => length,
+  },
+
+  Module: {
+    durationInSeconds: ({ length }) => length,
   },
 };
 
